@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ders Kartlarım
 
-## Getting Started
+AI destekli ders kartı oluşturma ve öğrenme uygulaması — [derskartlarim.com](https://derskartlarim.com)
 
-First, run the development server:
+## Özellikler
+
+- Metin veya PDF'den otomatik kart üretimi (Google Gemini)
+- **Soru Kartları** — klasik, şıklı, doğru/yanlış
+- **Özet Kartları** — önemli noktalar madde madde, direkt görünür
+- Firebase Auth ile giriş / kayıt
+- Firestore'da deste saklama
+- SM-2 spaced repetition algoritması
+
+## Kurulum
 
 ```bash
+npm install
+cp .env.example .env.local
+# .env.local dosyasına API anahtarlarını ekle
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Firebase kurulumu
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. [Firebase Console](https://console.firebase.google.com) → Yeni proje oluştur
+2. **Authentication** → Email/Password + Google etkinleştir
+3. **Firestore Database** → Oluştur
+4. **Project Settings** → Web app ekle → config değerlerini `.env.local`'e yapıştır
+5. **Firestore Rules** → `firestore.rules` dosyasındaki kuralları yapıştır
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Gemini API
 
-## Learn More
+[Gemini API anahtarı al](https://aistudio.google.com/apikey)
 
-To learn more about Next.js, take a look at the following resources:
+## Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Next.js 16 + TypeScript + Tailwind CSS
+- Google Gemini AI
+- Firebase Auth + Firestore
+- pdf-parse
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Lisans
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
