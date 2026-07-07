@@ -33,7 +33,7 @@ export function DeckCard({ deck, onDelete }: DeckCardProps) {
       : CARD_FORMAT_LABELS[deck.cardFormat ?? "classic"];
 
   return (
-    <div className="group glass rounded-2xl p-5 hover:shadow-xl hover:shadow-indigo-500/8 transition-all duration-300 hover:-translate-y-0.5">
+    <div className="group glass rounded-2xl p-4 sm:p-5 hover:shadow-xl hover:shadow-indigo-500/8 transition-all duration-300 sm:hover:-translate-y-0.5">
       <div className="flex items-start gap-4">
         <div
           className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${gradient} flex items-center justify-center shrink-0 shadow-lg`}
@@ -80,10 +80,10 @@ export function DeckCard({ deck, onDelete }: DeckCardProps) {
         </div>
       </div>
 
-      <div className="flex gap-2 mt-4">
+      <div className="flex gap-2 mt-3 sm:mt-4">
         <Link
           href={`/study/${deck.id}`}
-          className="flex-1 py-2.5 px-4 rounded-xl btn-primary text-sm text-center flex items-center justify-center gap-2"
+          className="flex-1 py-3 sm:py-2.5 px-4 rounded-xl btn-primary text-sm text-center flex items-center justify-center gap-2 min-h-[44px]"
         >
           {deckMode === "summary" ? (
             <>
@@ -99,7 +99,7 @@ export function DeckCard({ deck, onDelete }: DeckCardProps) {
         </Link>
         <Link
           href={`/deck/${deck.id}`}
-          className="py-2.5 px-4 rounded-xl border border-slate-200/80 bg-white/60 text-slate-600 text-sm font-semibold hover:bg-white hover:border-indigo-200 transition flex items-center gap-1"
+          className="py-3 sm:py-2.5 px-4 rounded-xl border border-slate-200/80 bg-white/60 text-slate-600 text-sm font-semibold hover:bg-white hover:border-indigo-200 transition flex items-center gap-1 min-h-[44px]"
         >
           Detay
           <ChevronRight className="w-4 h-4" />

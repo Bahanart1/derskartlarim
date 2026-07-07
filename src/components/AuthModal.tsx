@@ -76,7 +76,7 @@ export function AuthModal({
         onClick={onClose}
       />
       <div
-        className="relative w-full max-w-md glass-strong rounded-3xl p-7 sm:p-8 animate-scale-in"
+        className="relative w-full max-w-md max-h-[90dvh] overflow-y-auto glass-strong rounded-2xl sm:rounded-3xl p-5 sm:p-8 animate-scale-in mx-auto"
         style={{ animationDuration: "0.3s" }}
       >
         <button

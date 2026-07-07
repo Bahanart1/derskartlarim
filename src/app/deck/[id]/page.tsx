@@ -144,7 +144,7 @@ export default function DeckPage() {
   return (
     <PageBackground>
       <Header />
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 nav-offset pb-8 sm:pb-12">
+      <div className="max-w-3xl mx-auto px-3 sm:px-6 nav-offset pb-8 sm:pb-12 safe-bottom">
           <Link
             href="/"
             className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-indigo-600 transition mb-8 px-3 py-2 rounded-xl hover:bg-white/60"

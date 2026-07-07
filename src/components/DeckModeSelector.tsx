@@ -14,6 +14,7 @@ import { DECK_MODE_LABELS } from "@/types";
 
 interface DeckModeSelectorProps {
   onSelect: (mode: DeckMode) => void;
+  compact?: boolean;
 }
 
 const MODES: {
@@ -29,7 +30,7 @@ const MODES: {
   {
     id: "questions",
     label: DECK_MODE_LABELS.questions,
-    desc: "Metninden sınav tarzı kartlar üret, çalış ve tekrar et",
+    desc: "PDF'den veya ders notundan sınav tarzı kartlar üret, çalış ve tekrar et",
     tags: ["Klasik", "Şıklı", "Doğru/Yanlış"],
     icon: HelpCircle,
     accent: "from-indigo-500 via-violet-500 to-purple-600",
@@ -127,19 +128,21 @@ function SummaryPreview() {
   );
 }
 
-export function DeckModeSelector({ onSelect }: DeckModeSelectorProps) {
+export function DeckModeSelector({ onSelect, compact = false }: DeckModeSelectorProps) {
   return (
     <div className="space-y-6">
-      <div className="text-center sm:text-left">
-        <h2 className="font-display text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-          Nasıl öğrenmek istiyorsun?
-        </h2>
-        <p className="text-slate-500 mt-2 text-sm sm:text-base max-w-md mx-auto sm:mx-0">
-          PDF yükle, yapay zeka sana uygun kartları hazırlasın.
-        </p>
-      </div>
+      {!compact && (
+        <div className="text-center sm:text-left">
+          <h2 className="font-display text-xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+            Nasıl öğrenmek istiyorsun?
+          </h2>
+          <p className="text-slate-500 mt-2 text-sm sm:text-base max-w-md mx-auto sm:mx-0">
+            PDF veya ders notundan yapay zeka sana uygun kartları hazırlasın.
+          </p>
+        </div>
+      )}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+      <div className={`grid grid-cols-1 gap-4 sm:gap-5 ${compact ? "" : "sm:grid-cols-2"}`}>
         {MODES.map(({ id, label, desc, tags, icon: Icon, accent, glow, preview }, i) => (
           <button
             key={id}
@@ -148,7 +151,7 @@ export function DeckModeSelector({ onSelect }: DeckModeSelectorProps) {
             className={`group relative text-left rounded-3xl overflow-hidden border border-white/80 bg-white/50 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl ${glow} animate-fade-up focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2`}
             style={{ animationDelay: `${i * 0.08}s` }}
           >
-            <div className={`relative h-44 bg-gradient-to-br ${accent} overflow-hidden`}>
+            <div className={`relative h-36 sm:h-44 bg-gradient-to-br ${accent} overflow-hidden`}>
               <div
                 className="absolute inset-0 opacity-30"
                 style={{

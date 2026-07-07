@@ -47,7 +47,7 @@ const steps = [
   {
     icon: Upload,
     title: "Notunu ekle",
-    desc: "Metin yapıştır veya PDF yükle.",
+    desc: "PDF yükle veya ders notu yapıştır.",
   },
   {
     icon: Sparkles,
@@ -67,16 +67,16 @@ export function LandingHero({ onGetStarted }: LandingHeroProps) {
   }
 
   return (
-    <div className="pb-16 sm:pb-24">
-      <section className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center pt-4 sm:pt-8 mb-20 sm:mb-28 animate-fade-up">
+    <div className="pb-10 sm:pb-24">
+      <section className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center pt-2 sm:pt-8 mb-12 sm:mb-28 animate-fade-up">
         <div className="text-center lg:text-left">
-          <p className="inline-flex items-center gap-2 text-sm font-semibold text-indigo-700 bg-indigo-50 border border-indigo-100 px-4 py-2 rounded-full mb-6">
+          <p className="hidden sm:inline-flex items-center gap-2 text-sm font-semibold text-indigo-700 bg-indigo-50 border border-indigo-100 px-4 py-2 rounded-full mb-6">
             <Layers className="w-4 h-4" />
             Sınav hazırlığı için akıllı kartlar
           </p>
 
-          <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.25rem] font-bold tracking-tight text-slate-900 leading-[1.08]">
-            Metninden{" "}
+          <h1 className="font-display text-3xl sm:text-5xl lg:text-[3.25rem] font-bold tracking-tight text-slate-900 leading-[1.1] sm:leading-[1.08]">
+            PDF veya ders notundan{" "}
             <span className="bg-gradient-to-r from-indigo-600 via-violet-600 to-purple-600 bg-clip-text text-transparent">
               ders kartı
             </span>
@@ -84,22 +84,22 @@ export function LandingHero({ onGetStarted }: LandingHeroProps) {
             saniyeler içinde
           </h1>
 
-          <p className="text-slate-500 mt-5 text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
+          <p className="text-slate-500 mt-4 sm:mt-5 text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
             PDF veya ders notunu yükle, yapay zeka soru-cevap kartları üretsin.
             Tekrar zamanlaması ile sınavlara kalıcı hazırlan.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 mt-8 justify-center lg:justify-start">
+          <div className="flex flex-col sm:flex-row gap-3 mt-6 sm:mt-8 justify-center lg:justify-start">
             <button
               onClick={onGetStarted}
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-2xl btn-primary text-base"
+              className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 rounded-2xl btn-primary text-base min-h-[48px]"
             >
               <LogIn className="w-5 h-5" />
               Ücretsiz Başla
             </button>
             <button
               onClick={scrollToSteps}
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-2xl glass text-slate-700 font-semibold hover:bg-white/90 transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 rounded-2xl glass text-slate-700 font-semibold hover:bg-white/90 transition-colors min-h-[48px]"
             >
               Nasıl çalışır?
               <ArrowRight className="w-4 h-4" />

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans, Syne } from "next/font/google";
 import { AuthProvider } from "@/contexts/AuthProvider";
 import { siteConfig } from "@/lib/site";
@@ -68,6 +68,12 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
@@ -93,7 +99,7 @@ export default function RootLayout({
   return (
     <html
       lang="tr"
-      className={`${plusJakarta.variable} ${syne.variable} h-full antialiased`}
+      className={`${plusJakarta.variable} ${syne.variable} antialiased mesh-bg`}
     >
       <body className="min-h-full flex flex-col font-sans text-slate-900">
         <script

@@ -35,7 +35,7 @@ export default function HomePage() {
     <>
       <PageBackground>
         <Header />
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 nav-offset pb-4 sm:pb-6">
+        <div className="max-w-6xl mx-auto px-3 sm:px-6 nav-offset pb-4 sm:pb-6 safe-bottom">
           {!user ? (
             <LandingHero onGetStarted={() => setAuthOpen(true)} />
           ) : (

@@ -183,7 +183,7 @@ export default function StudyPage() {
   return (
     <PageBackground>
       <Header />
-      <div className="max-w-2xl mx-auto px-4 nav-offset pb-6 sm:pb-10">
+      <div className="max-w-2xl mx-auto px-3 sm:px-4 nav-offset pb-6 sm:pb-10 safe-bottom">
           <div className="flex items-center justify-between mb-6">
             <Link
               href="/"
