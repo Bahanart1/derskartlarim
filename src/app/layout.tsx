@@ -99,9 +99,9 @@ export default function RootLayout({
   return (
     <html
       lang="tr"
-      className={`${plusJakarta.variable} ${syne.variable} antialiased mesh-bg`}
+      className={`${plusJakarta.variable} ${syne.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans text-slate-900">
+      <body className="min-h-screen flex flex-col font-sans text-slate-900 mesh-bg">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -28,7 +28,6 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 7rem;
-  min-height: 100%;
   background-color: #f6f7fb;
 }
 
@@ -40,8 +39,8 @@ html {
 
 body {
   color: var(--foreground);
-  min-height: 100%;
-  background-color: #f6f7fb;
+  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .font-display {
@@ -149,19 +148,11 @@ body {
 
 .mesh-bg {
   background-color: #f6f7fb;
-}
-
-.mesh-bg::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background-color: #f6f7fb;
   background-image:
     radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.12) 0, transparent 50%),
     radial-gradient(at 100% 0%, rgba(16, 185, 129, 0.1) 0, transparent 50%),
     radial-gradient(at 50% 100%, rgba(139, 92, 246, 0.08) 0, transparent 50%);
-  pointer-events: none;
+  background-attachment: scroll;
 }
 
 .btn-primary {
