@@ -113,10 +113,10 @@ export default function StudyPage() {
 
   if (finished) {
     return (
-      <>
+      <PageBackground>
         <Header />
-        <PageBackground className="flex items-center justify-center min-h-[calc(100vh-4rem)]">
-          <div className="text-center max-w-md px-4 animate-scale-in">
+        <div className="nav-offset flex items-center justify-center min-h-[calc(100vh-7rem)] px-4">
+          <div className="text-center max-w-md animate-scale-in">
             <div className="relative w-24 h-24 mx-auto mb-8">
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-2xl shadow-indigo-500/30">
                 <PartyPopper className="w-12 h-12 text-white" />
@@ -152,17 +152,17 @@ export default function StudyPage() {
               </button>
             </div>
           </div>
-        </PageBackground>
-      </>
+        </div>
+      </PageBackground>
     );
   }
 
   if (!currentCard) {
     return (
-      <>
+      <PageBackground>
         <Header />
-        <PageBackground className="flex items-center justify-center min-h-[calc(100vh-4rem)]">
-          <div className="text-center px-4 animate-scale-in">
+        <div className="nav-offset flex items-center justify-center min-h-[calc(100vh-7rem)] px-4">
+          <div className="text-center animate-scale-in">
             <CheckCircle2 className="w-20 h-20 text-emerald-500 mx-auto mb-6" />
             <h1 className="font-display text-2xl sm:text-3xl font-bold text-slate-900">
               Bugünlük hedef tamam!
@@ -175,16 +175,15 @@ export default function StudyPage() {
               Ana Sayfa
             </Link>
           </div>
-        </PageBackground>
-      </>
+        </div>
+      </PageBackground>
     );
   }
 
   return (
-    <>
+    <PageBackground>
       <Header />
-      <PageBackground>
-        <div className="max-w-2xl mx-auto px-4 py-6 sm:py-10">
+      <div className="max-w-2xl mx-auto px-4 nav-offset pb-6 sm:pb-10">
           <div className="flex items-center justify-between mb-6">
             <Link
               href="/"
@@ -250,7 +249,6 @@ export default function StudyPage() {
             )}
           </div>
         </div>
-      </PageBackground>
-    </>
+    </PageBackground>
   );
 }

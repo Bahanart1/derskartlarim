@@ -94,7 +94,7 @@ export function AuthModal({
           {mode === "login" ? "Tekrar hoş geldin" : "Hesap oluştur"}
         </h2>
         <p className="text-sm text-slate-500 mt-1.5">
-          Destelerin bulutta, her cihazda seninle.
+          Kartların bulutta, her cihazda seninle.
         </p>
 
         <button

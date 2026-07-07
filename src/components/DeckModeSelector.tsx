@@ -8,7 +8,6 @@ import {
   FlipHorizontal,
   HelpCircle,
   ListChecks,
-  Sparkles,
 } from "lucide-react";
 import type { DeckMode } from "@/types";
 import { DECK_MODE_LABELS } from "@/types";
@@ -132,15 +131,11 @@ export function DeckModeSelector({ onSelect }: DeckModeSelectorProps) {
   return (
     <div className="space-y-6">
       <div className="text-center sm:text-left">
-        <div className="inline-flex items-center gap-2 glass px-3 py-1.5 rounded-full mb-4 text-xs font-semibold text-indigo-700">
-          <Sparkles className="w-3.5 h-3.5 text-violet-500" />
-          Yeni deste oluştur
-        </div>
         <h2 className="font-display text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
           Nasıl öğrenmek istiyorsun?
         </h2>
         <p className="text-slate-500 mt-2 text-sm sm:text-base max-w-md mx-auto sm:mx-0">
-          Metnini yükle, AI sana uygun kartları hazırlasın.
+          PDF yükle, yapay zeka sana uygun kartları hazırlasın.
         </p>
       </div>
 

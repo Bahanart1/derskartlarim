@@ -142,10 +142,9 @@ export default function DeckPage() {
   }
 
   return (
-    <>
+    <PageBackground>
       <Header />
-      <PageBackground>
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 nav-offset pb-8 sm:pb-12">
           <Link
             href="/"
             className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-indigo-600 transition mb-8 px-3 py-2 rounded-xl hover:bg-white/60"
@@ -182,8 +181,7 @@ export default function DeckPage() {
           <div className="space-y-3">
             {currentDeck.cards.map((card, i) => renderCardPreview(card, i))}
           </div>
-        </div>
-      </PageBackground>
-    </>
+      </div>
+    </PageBackground>
   );
 }

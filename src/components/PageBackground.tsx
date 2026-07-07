@@ -5,7 +5,7 @@ interface PageBackgroundProps {
 
 export function PageBackground({ children, className = "" }: PageBackgroundProps) {
   return (
-    <div className={`flex-1 mesh-bg relative overflow-hidden ${className}`}>
+    <div className={`flex-1 mesh-bg relative overflow-hidden min-h-screen ${className}`}>
       <div
         className="pointer-events-none absolute -top-32 -left-32 w-96 h-96 rounded-full bg-indigo-400/20 blur-3xl animate-pulse-soft"
         aria-hidden
