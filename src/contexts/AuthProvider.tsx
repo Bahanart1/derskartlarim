@@ -16,7 +16,7 @@ import {
   signOut as firebaseSignOut,
   type User,
 } from "firebase/auth";
-import { getFirebaseAuth } from "@/lib/firebase";
+import { getFirebaseAuth, isFirebaseConfigured } from "@/lib/firebase";
 import { migrateLocalDecks } from "@/lib/decks";
 
 function mapAuthError(message: string): string {
@@ -39,6 +39,7 @@ function mapAuthError(message: string): string {
 interface AuthContextValue {
   user: User | null;
   loading: boolean;
+  firebaseConfigured: boolean;
   signIn: (email: string, password: string) => Promise<string | null>;
   signUp: (email: string, password: string) => Promise<string | null>;
   signInWithGoogle: () => Promise<string | null>;
@@ -52,6 +53,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    if (!isFirebaseConfigured()) {
+      setLoading(false);
+      return;
+    }
+
     const unsubscribe = onAuthStateChanged(getFirebaseAuth(), async (nextUser) => {
       setUser(nextUser);
       setLoading(false);
@@ -65,6 +71,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const signIn = useCallback(async (email: string, password: string) => {
+    if (!isFirebaseConfigured()) {
+      return "Firebase yapılandırılmamış. .env.local dosyasındaki NEXT_PUBLIC_FIREBASE_* değerlerini doldur.";
+    }
     try {
       await signInWithEmailAndPassword(getFirebaseAuth(), email, password);
       return null;
@@ -74,6 +83,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const signUp = useCallback(async (email: string, password: string) => {
+    if (!isFirebaseConfigured()) {
+      return "Firebase yapılandırılmamış. .env.local dosyasındaki NEXT_PUBLIC_FIREBASE_* değerlerini doldur.";
+    }
     try {
       await createUserWithEmailAndPassword(getFirebaseAuth(), email, password);
       return null;
@@ -83,6 +95,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const signInWithGoogle = useCallback(async () => {
+    if (!isFirebaseConfigured()) {
+      return "Firebase yapılandırılmamış. .env.local dosyasındaki NEXT_PUBLIC_FIREBASE_* değerlerini doldur.";
+    }
     try {
       const provider = new GoogleAuthProvider();
       await signInWithPopup(getFirebaseAuth(), provider);
@@ -93,11 +108,22 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const signOut = useCallback(async () => {
+    if (!isFirebaseConfigured()) return;
     await firebaseSignOut(getFirebaseAuth());
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, loading, signIn, signUp, signInWithGoogle, signOut }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        loading,
+        firebaseConfigured: isFirebaseConfigured(),
+        signIn,
+        signUp,
+        signInWithGoogle,
+        signOut,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

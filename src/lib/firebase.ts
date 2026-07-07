@@ -11,6 +11,15 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
+export function isFirebaseConfigured(): boolean {
+  return Boolean(
+    firebaseConfig.apiKey &&
+      firebaseConfig.authDomain &&
+      firebaseConfig.projectId &&
+      firebaseConfig.appId
+  );
+}
+
 let app: FirebaseApp | undefined;
 let auth: Auth | undefined;
 let db: Firestore | undefined;
@@ -18,6 +27,11 @@ let db: Firestore | undefined;
 function getApp(): FirebaseApp {
   if (typeof window === "undefined") {
     throw new Error("Firebase yalnızca tarayıcıda kullanılabilir.");
+  }
+  if (!isFirebaseConfigured()) {
+    throw new Error(
+      "Firebase yapılandırılmamış. .env.local dosyasındaki NEXT_PUBLIC_FIREBASE_* değerlerini doldur."
+    );
   }
   if (!app) {
     app = getApps().length ? getApps()[0] : initializeApp(firebaseConfig);

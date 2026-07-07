@@ -8,7 +8,6 @@ import {
   Layers,
   Loader2,
   LogIn,
-  Sparkles,
   Zap,
 } from "lucide-react";
 import { Header } from "@/components/Header";
@@ -86,23 +85,18 @@ export default function HomePage() {
           {!user ? (
             <>
               <section className="text-center mb-14 sm:mb-16 animate-fade-up">
-                <div className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full mb-6 text-sm font-semibold text-indigo-700">
-                  <Sparkles className="w-4 h-4 text-violet-500" />
-                  Google Gemini ile akıllı öğrenme
-                </div>
-
                 <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.1]">
                   Metninden{" "}
                   <span className="bg-gradient-to-r from-indigo-600 via-violet-600 to-purple-600 bg-clip-text text-transparent">
-                    flashcard
+                    ders kartı
                   </span>
                   <br className="hidden sm:block" />
                   saniyeler içinde
                 </h1>
 
                 <p className="text-slate-500 mt-5 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">
-                  PDF veya ders notunu yükle, AI soru-cevap kartları üretsin.
-                  Spaced repetition ile kalıcı öğren.
+                  PDF veya ders notunu yükle, yapay zeka soru-cevap kartları üretsin.
+                  SM-2 spaced repetition ile sınavlara kalıcı hazırlan.
                 </p>
 
                 <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mt-10">
