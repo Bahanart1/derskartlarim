@@ -162,7 +162,7 @@ export function DashboardHome({
           </button>
         </div>
       ) : (
-        <div className="space-y-3 deck-list-scroll pr-1 -mr-1">
+        <div className="space-y-3 deck-list-scroll pr-1">
           {decks.map((deck) => (
             <DeckCard key={deck.id} deck={deck} onDelete={handleDelete} />
           ))}

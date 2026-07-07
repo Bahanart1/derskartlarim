@@ -29,6 +29,8 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 7rem;
   background-color: #f6f7fb;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 @media (min-width: 640px) {
@@ -41,6 +43,8 @@ body {
   color: var(--foreground);
   min-height: 100vh;
   min-height: 100dvh;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 .font-display {
@@ -148,11 +152,19 @@ body {
 
 .mesh-bg {
   background-color: #f6f7fb;
+}
+
+.mesh-bg::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-color: #f6f7fb;
   background-image:
     radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.12) 0, transparent 50%),
     radial-gradient(at 100% 0%, rgba(16, 185, 129, 0.1) 0, transparent 50%),
     radial-gradient(at 50% 100%, rgba(139, 92, 246, 0.08) 0, transparent 50%);
-  background-attachment: scroll;
 }
 
 .btn-primary {
